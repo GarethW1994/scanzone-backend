@@ -74,7 +74,7 @@ describe('Create Picker Account', function (done) {
             // Write Process To Dev Log
             let checkState = function(err) { if (!err) {return true} else {return false}};
 
-            let dev_log = { Date: new Date().toString(), Msg: "Adding New Picker Log", Err: err, Success: checkState(err)};
+            let dev_log = { Date: new Date().toString(), Msg: "Adding New Picker Log", Error: err, Success: checkState(err)};
 
           await fs.appendFile('dev_log_test.json', JSON.stringify(dev_log) , 'utf-8', (err) => {
                 if (err) throw err;
