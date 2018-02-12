@@ -1,0 +1,19 @@
+{
+  "name": "scan-zone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GarethW1994/scanzone-backend.git"
+  },
+  "author": "Intern-Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GarethW1994/scanzone-backend/issues"
+  },
+  "homepage": "https://github.com/GarethW1994/scanzone-backend#readme"
+}
