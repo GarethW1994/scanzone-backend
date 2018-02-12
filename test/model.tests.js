@@ -103,9 +103,9 @@ describe('Create Developer Account', function (done) {
     // done();
 });
 
-// describe('Dev Log', function () {
-//     it('Should Write Log To File For Developer', function (done) {
-//         DevLog.write("Updating Stock", null);
-//         done();
-//     });
-// });
+describe('Dev Log', function () {
+    it('Should Write Log To File For Developer', function (done) {
+        DevLog.write("Updating Stock", null);
+        done();
+    });
+});
