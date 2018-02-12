@@ -15,9 +15,10 @@ const mongoURL = process.env.MONGO_DB_URL ||'mongodb://localhost/backend-log';
 
 // REQUIRE OTHER FILES HERE
 const model = require('./modules/Modules');
-
+const routes = require('./routes/Router');
 // INITILIASE
 const Model = model(mongoURL)
+const Routes = routes(Model);
 
 
 // intialise dependencies
@@ -45,6 +46,7 @@ app.get('/', function(req, res, next) {
 });
 
 // OTHER ROUTES GO HERE
+app.get('/manager',Routes.manager);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

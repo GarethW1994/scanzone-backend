@@ -44,3 +44,7 @@ Mon Feb 12 2018 14:03:52 GMT+0200 (SAST) Process: Updating Stock - Error: null
 
 Mon Feb 12 2018 14:04:09 GMT+0200 (SAST) Process: Updating Stock - Error: null
 
+Mon Feb 12 2018 15:09:09 GMT+0200 (SAST) Process: Updating Stock - Error: null
+
+Mon Feb 12 2018 15:09:09 GMT+0200 (SAST) Process: Updating Stock - Error: null
+
