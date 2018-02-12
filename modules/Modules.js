@@ -52,9 +52,6 @@ module.exports = function (url) {
         },
         Dev_Password: {
             type: String
-        },
-        Dev_Log: {
-            Log: Array
         }
     })
 
