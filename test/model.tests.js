@@ -52,11 +52,12 @@ describe('Create Picker Account', function () {
     it('Should Create A New Picker Log', function (done) {
         // New Picker Log
         var newPickerLog = {
+            UserId: "1001PY",
             Picker_Username: "Peter",
             Log: {
-                Start_Time: new Date("2018-02-12 10:00:00"),
+                Login_Time: new Date("2018-02-12 10:00:00"),
                 Task: "Process Order",
-                End_Time: new Date("2018-02-12 13:00:00")
+                Logout_Time: new Date("2018-02-12 13:00:00")
             }
         }
 
@@ -72,19 +73,19 @@ describe('Create Picker Account', function () {
 
 describe('Create Developer Account', function (done) {
     // Before Each Function - Clear DB
-    // beforeEach(function(done) {
-    //     Models.developer.find({}, function (err) {
-    //         Models.developer.remove({}, function (err) {
-    //             assert.equal(null, err);
-    //             done(err)
-    //         });
-    //     });
-    // });
+    beforeEach(function(done) {
+        Models.developer.find({}, function (err) {
+            Models.developer.remove({}, function (err) {
+                assert.equal(null, err);
+                done(err)
+            });
+        });
+    });
 
     it('Should Create New Developer Log', function (done) {
         // New Developer Log
         var newDevLog = {
-            Dev_Username: 12,
+            Dev_Username: "Christian",
             Dev_Password: 'Chris123'
         }
 
