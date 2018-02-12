@@ -11,10 +11,13 @@ const logger = require('morgan');
 
 
 //define mongo url
-const mongoURL = process.env.MONGO_DB_URL ||'mongodb://localhost/config-server';
-
+const mongoURL = process.env.MONGO_DB_URL ||'mongodb://localhost/backend-log';
 
 // REQUIRE OTHER FILES HERE
+const model = require('./modules/Modules');
+
+// INITILIASE
+const Model = model(mongoURL)
 
 
 // intialise dependencies
