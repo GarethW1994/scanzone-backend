@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/GarethW1994/scanzone-backend/issues"
   },
-  "homepage": "https://github.com/GarethW1994/scanzone-backend#readme"
+  "homepage": "https://github.com/GarethW1994/scanzone-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "fs": "0.0.1-security",
+    "mongoose": "^5.0.4",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7"
+  }
 }
