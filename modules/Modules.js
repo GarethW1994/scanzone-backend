@@ -30,13 +30,16 @@ module.exports = function (url) {
 
     // Picker Schema
     const Picker = new mongoose.Schema({
+        UserId: {
+            type: String
+        },
         Picker_Username: {
             type: String
         },
         Log: {
-            Start_Time: String,
-            Task: Object,
-            End_Time: String
+            Login_Time: String,
+            Task_Done: String,
+            Logout_Time: String
         }
     })
 
@@ -52,9 +55,6 @@ module.exports = function (url) {
         },
         Dev_Password: {
             type: String
-        },
-        Dev_Log: {
-            Log: Array
         }
     })
 
