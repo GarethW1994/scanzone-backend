@@ -45,6 +45,33 @@ app.use(session({
   saveUninitialized: true
 }))
 
+function isLoggedIn(req, res, next){
+
+  if (!req.session.username){
+      //if (req.path !== "/login"){
+      return res.redirect("/login");
+      //}
+  }
+  if (req.session.userRole === "manager"){
+      return res.json("/access_denied");
+  }
+  next();
+}
+
+function isAdmin(req, res, next){
+  if (!req.session.username){
+      //if (req.path !== "/login"){
+      return res.redirect("/login");
+      //}
+  }
+
+  if (req.session.userRole !== "manager"){
+      return res.json("access_denied");
+  }
+
+  next();
+}
+
 app.use(cors());
 
 // Get Route to get home
@@ -54,41 +81,10 @@ app.get('/', function(req, res, next) {
 
 // OTHER ROUTES GO HERE
 app.get('/manager',Routes.manager);
+app.get('/access_denied', Routes.access_denied);
 
 //Post Route to login
-app.post('/login', function(req, res, next){
-  var users = {
-    "developer": "developer",
-    "manager": "manager",
-    "picker":"picker"
-  };
-
-  var username = req.body.username;
-
-  var userRole = users[username];
-
-  if (userRole && req.body.password === 'steltixE1') {
-    req.session.username = req.body.username;
-    req.session.userRole = userRole;
-
-    if (userRole == 'manager') {
-      //Redirect the routing to Manager VIEW
-      res.redirect('managerView' + username)
-      
-    }else if (userRole == 'picker') {
-      //Redirect the routing to Pickwe View
-      res.redirect('pickerView' + username)
-      
-    }else if (userRole == 'developer') {
-            //Redirect the routing to Pickwe View
-            res.redirect('manager')
-    }
-    
-  }
-
-  
-
-});
+app.post('/login', Routes.login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
