@@ -81,7 +81,7 @@ app.post('/login', function(req, res, next){
       
     }else if (userRole == 'developer') {
             //Redirect the routing to Pickwe View
-            res.redirect('DeveloperView' + username)
+            res.redirect('manager')
     }
     
   }
