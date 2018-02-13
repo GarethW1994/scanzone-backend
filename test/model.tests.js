@@ -2,6 +2,7 @@
 const assert = require('assert');
 const models = require('../modules/Modules');
 const devlog = require('../log/DevLog');
+const fs = require('fs');
 
 //connect to MongoDB
 var Models = models('mongodb://localhost/backend-log');
@@ -9,7 +10,7 @@ var Models = models('mongodb://localhost/backend-log');
 // Initialise Devlog
 var DevLog = devlog();
 
-describe('Create Admin User', function (done) {
+describe('Create Admin User', function () {
     // Before Each Function - Clear DB
     beforeEach(function (done) {
         Models.admin.find({}, function (err) {
@@ -32,9 +33,10 @@ describe('Create Admin User', function (done) {
         Models.admin.create(newAdmin, function (err, result) {
             if (err) throw err;
 
-            assert.equal(null, err)
+            assert.equal(null, err);
+
+            done();      
         });
-        done();
     });
 });
 
@@ -66,12 +68,13 @@ describe('Create Picker Account', function () {
             if (err) throw err;
 
             assert.equal(null, err);
+    
+            done();   
         });
-        done();
     });
 });
 
-describe('Create Developer Account', function (done) {
+describe('Create Developer Account', function () {
     // Before Each Function - Clear DB
     beforeEach(function(done) {
         Models.developer.find({}, function (err) {
@@ -92,20 +95,31 @@ describe('Create Developer Account', function (done) {
         // Create New Dev Log And Save To Mongo
         Models.developer.create(newDevLog, function (err, result) {
             if (err) throw err;
-
-            DevLog.write("Updating Stock", err);
             
             assert.equal(null, err);
+      
+            done();        
         });
-        done();
-    });
-
-    // done();
-});
-
-describe('Dev Log', function () {
-    it('Should Write Log To File For Developer', function (done) {
-        DevLog.write("Updating Stock", null);
-        done();
     });
 });
+
+describe('Dev Log', function() {
+    it('Should Write Log To File For Developer', async function (done) {
+      // Write Process To Dev Log
+      let operation = "Updated Stock";
+      let err = null;
+
+      let dev_log = new Date().toString() + " Process: " + operation + " - Error: " + err + "\r\n" + "\r\n";
+
+      fs.appendFile('TestLogs/dev_log_test.txt', dev_log, 'utf-8', (err) => {
+          if (err) throw err;
+          console.log('The file has been saved!');
+      });
+
+      assert.equal(null, err)
+      done();
+
+      process.exit();
+    });
+});
+
