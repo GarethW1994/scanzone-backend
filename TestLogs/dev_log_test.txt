@@ -44,6 +44,11 @@ Mon Feb 12 2018 14:03:52 GMT+0200 (SAST) Process: Updating Stock - Error: null
 
 Mon Feb 12 2018 14:04:09 GMT+0200 (SAST) Process: Updating Stock - Error: null
 
+<<<<<<< HEAD
+Mon Feb 12 2018 15:09:09 GMT+0200 (SAST) Process: Updating Stock - Error: null
+
+Mon Feb 12 2018 15:09:09 GMT+0200 (SAST) Process: Updating Stock - Error: null
+=======
 Mon Feb 12 2018 15:04:36 GMT+0200 (SAST) Process: Updating Stock - Error: null
 
 Mon Feb 12 2018 15:05:08 GMT+0200 (SAST) Process: Updating Stock - Error: null
@@ -113,4 +118,5 @@ Tue Feb 13 2018 10:36:12 GMT+0200 (SAST) Process: Updated Stock - Error: null
 Tue Feb 13 2018 10:36:17 GMT+0200 (SAST) Process: Updated Stock - Error: null
 
 Tue Feb 13 2018 10:36:32 GMT+0200 (SAST) Process: Updated Stock - Error: null
+>>>>>>> 1e6e949ab79d82b59469840f3cc5e802f1c7fac4
 
