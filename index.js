@@ -38,6 +38,13 @@ app.use(function(req, res, next) {
   next();
 });
 
+//User sessions to track Logins
+app.use(session({
+  secret: '@pp Factori3',
+  resave: false,
+  saveUninitialized: true
+}))
+
 app.use(cors());
 
 // Get Route to get home
@@ -47,6 +54,41 @@ app.get('/', function(req, res, next) {
 
 // OTHER ROUTES GO HERE
 app.get('/manager',Routes.manager);
+
+//Post Route to login
+app.post('/login', function(req, res, next){
+  var users = {
+    "developer": "developer",
+    "manager": "manager",
+    "picker":"picker"
+  };
+
+  var username = req.body.username;
+
+  var userRole = users[username];
+
+  if (userRole && req.body.password === 'steltixE1') {
+    req.session.username = req.body.username;
+    req.session.userRole = userRole;
+
+    if (userRole == 'manager') {
+      //Redirect the routing to Manager VIEW
+      res.redirect('managerView' + username)
+      
+    }else if (userRole == 'picker') {
+      //Redirect the routing to Pickwe View
+      res.redirect('pickerView' + username)
+      
+    }else if (userRole == 'developer') {
+            //Redirect the routing to Pickwe View
+            res.redirect('DeveloperView' + username)
+    }
+    
+  }
+
+  
+
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
