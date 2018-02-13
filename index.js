@@ -15,9 +15,10 @@ const mongoURL = process.env.MONGO_DB_URL ||'mongodb://localhost/backend-log';
 
 // REQUIRE OTHER FILES HERE
 const model = require('./modules/Modules');
-
+const routes = require('./routes/Router');
 // INITILIASE
 const Model = model(mongoURL)
+const Routes = routes(Model);
 
 
 // intialise dependencies
@@ -52,6 +53,7 @@ app.get('/', function(req, res, next) {
 });
 
 // OTHER ROUTES GO HERE
+app.get('/manager',Routes.manager);
 
 //Post Route to login
 app.post('/login', function(req, res, next){
@@ -79,7 +81,7 @@ app.post('/login', function(req, res, next){
       
     }else if (userRole == 'developer') {
             //Redirect the routing to Pickwe View
-            res.redirect('DeveloperView' + username)
+            res.redirect('manager')
     }
     
   }
