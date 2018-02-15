@@ -13,6 +13,18 @@ module.exports = function (url) {
     // Use native promises
     mongoose.Promise = global.Promise;
 
+    //User Schema
+    var UserSchema = new mongoose.Schema({  
+        username: String,
+        role: String,
+        password: String
+      });
+
+    // Set unique values for users
+    UserSchema.index({username: 1}, {unique: true});
+
+    var user =  mongoose.model('user', UserSchema);
+
     // Floor Manager Schema
     const Admin = new mongoose.Schema({
         Admin_Username: {
@@ -64,6 +76,7 @@ module.exports = function (url) {
     var developer = mongoose.model('developer', Developer);
 
     return {
+        user,
         admin,
         picker,
         developer

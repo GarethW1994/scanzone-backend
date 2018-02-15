@@ -9,6 +9,10 @@ const path = require('path');
 const cors = require('cors');
 const logger = require('morgan');
 
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
+const config = require('./config');
+
 
 //define mongo url
 const mongoURL = process.env.MONGO_DB_URL ||'mongodb://localhost/backend-log';
@@ -84,7 +88,9 @@ app.get('/manager',Routes.manager);
 app.get('/access_denied', Routes.access_denied);
 
 //Post Route to login
-app.post('/login', Routes.login);
+app.post('/scanZone', Routes.scanZone);
+
+app.post('/register', Routes.register);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,6 +1,12 @@
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
+const config = require('../config');
+
+
 "use strict"
 module.exports = function (Model) {
-  
+    
+ // console.log(config)
     const manager = function (req, res, next) {
         if (req.session.userRole === 'manager') {
             Model.picker.find({},function(err,results){
@@ -16,53 +22,43 @@ module.exports = function (Model) {
 
     }
 
-    const login =  function(req, res, next){
-        var users = {
-          "Christian": "developer",
-          "Fritz": "manager",
-          "Clement":"picker"
-        };
-      
-        var username = req.body.username;
-      
-        var userRole = users[username];
-      
-        if (userRole && req.body.password === 'steltixE1') {
-          req.session.username = req.body.username;
-          req.session.userRole = userRole;
-      
-          if (userRole === 'manager') {
-            //Return response status
-
-            res.json( req.session)
-
-            //Redirect the routing to Manager VIEW
+    const scanZone =  function(req, res, next){
+       
+        Model.user.findOne({username: req.body.username}, function (err, user) {
+            if(err) return res.status(500).send('Error on the server.');
+            if(!user) return res.status(404).send('No user found.');
+    
+            var passwordIsValid = bcrypt.compareSync(req.body.password,
+            user.password);
+            if(!passwordIsValid) return res.status(401).send({auth: false,
+            token: null});
+    
+            var token = jwt.sign({id: user._id}, config.secret, {
+                expiresIn: 3600 //expires in 1 hour
+            })
+    
+            res.status(200).send({auth: true, token: token, role: user.role})
             
-            
-          }else if (userRole == 'picker') {
-            //Return response status
-             // res.json('success')
-            res.json( req.session)
-              
-
-            //Redirect the routing to Pickwe View
-
-            
-          }else if (userRole == 'developer') {
-            //Return response status
-            res.json('success');
-
-            //Redirect the routing to Pickwe View
-
-
-          }
-          
-        }else{
-            res.json('Please use your correct Username and password')
-        }
-      
+        })    
+             
+      }
+    const register = function(req, res) {
+  
+        var hashedPassword = bcrypt.hashSync(req.body.password, 8);
         
-      
+        Model.user.create({
+          username : req.body.username,
+          role : req.body.role,
+          password : hashedPassword
+        },
+        function (err, user) {
+          if (err) return res.status(500).send("There was a problem registering the user.")
+          // create a token
+          var token = jwt.sign({ id: user._id }, config.secret, {
+            expiresIn: 86400 // expires in 24 hours
+          });
+          res.status(200).send({ auth: true, token: token });
+        }); 
       }
 
       const access_denied = function(req, res){
@@ -72,9 +68,10 @@ module.exports = function (Model) {
     // c+onst 
 
     return {
-    login,
+    scanZone,
     access_denied,
-    manager
+    manager,
+    register
     }
 
 }
