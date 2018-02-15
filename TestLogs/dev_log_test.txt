@@ -118,5 +118,3 @@ Tue Feb 13 2018 10:36:12 GMT+0200 (SAST) Process: Updated Stock - Error: null
 Tue Feb 13 2018 10:36:17 GMT+0200 (SAST) Process: Updated Stock - Error: null
 
 Tue Feb 13 2018 10:36:32 GMT+0200 (SAST) Process: Updated Stock - Error: null
->>>>>>> 1e6e949ab79d82b59469840f3cc5e802f1c7fac4
-
