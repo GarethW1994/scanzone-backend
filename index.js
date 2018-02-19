@@ -49,32 +49,6 @@ app.use(session({
   saveUninitialized: true
 }))
 
-function isLoggedIn(req, res, next){
-
-  if (!req.session.username){
-      //if (req.path !== "/login"){
-      return res.redirect("/login");
-      //}
-  }
-  if (req.session.userRole === "manager"){
-      return res.json("/access_denied");
-  }
-  next();
-}
-
-function isAdmin(req, res, next){
-  if (!req.session.username){
-      //if (req.path !== "/login"){
-      return res.redirect("/login");
-      //}
-  }
-
-  if (req.session.userRole !== "manager"){
-      return res.json("access_denied");
-  }
-
-  next();
-}
 
 app.use(cors());
 
