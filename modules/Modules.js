@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const assert = require('assert');
 
-module.exports = function (url) {
+module.exports = function (url) { //mongodb://greets:greets@ds064299.mlab.com:64299/liwa-greetings-webapp
     // Use connect method to connect to the server
     mongoose.connect(url, function (err, db) {
         assert.equal(null, err);
