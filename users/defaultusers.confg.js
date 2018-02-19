@@ -15,8 +15,9 @@ const automateUsers = function () {
         var configObject = JSON.parse(data);
 
         //Loop through the json file
+        console.log("Adding User Account to the Database....")
+        
         configObject.users.forEach(element => {
-            console.log("Adding User ACccount")
 
             //Checking if the username is not already existing in the datase
             models.user.findOne({ username: element.username }, function (err, user) {
