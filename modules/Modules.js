@@ -85,6 +85,7 @@ module.exports = function (url) { //mongodb://greets:greets@ds064299.mlab.com:64
     var items = mongoose.model('items', Items)
 
     return {
+        items,
         user,
         admin,
         picker,
