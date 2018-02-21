@@ -54,7 +54,9 @@ app.get('/', function(req, res, next) {
 
 // OTHER ROUTES GO HERE
 app.get('/manager',Routes.manager);
-
+app.get('/items',Routes.availItems);
+app.post('/po',Routes.getPObyId)
+// app.post('/create',Routes.creatData)
 //Post Route to login
 app.post('/login', function(req, res, next){
   var users = {

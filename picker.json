@@ -1,0 +1,85 @@
+{
+    "adminAccount": "steltix",
+    "adminUser": "ScanZoneSys",
+    "pickerslist": [{
+          "UserId": "0997",
+          "Picker_Username": "Teodorico",
+          "Log": {
+            "Login_Time": "2018-02-20T01:57:55Z",
+            "Logout_Time": "2018-02-20T12:44:30Z",
+            "Task_Done": "Purchase Order"
+          }
+        }, {
+          "UserId": "7450",
+          "Picker_Username": "Pip",
+          "Log": {
+            "Login_Time": "2018-02-20T21:21:42Z",
+            "Logout_Time": "2018-02-20T11:42:56Z",
+            "Task_Done": "Purchase Order"
+          }
+        }, {
+          "UserId": "4018",
+          "Picker_Username": "Adler",
+          "Log": {
+            "Login_Time": "2018-02-20T11:55:59Z",
+            "Logout_Time": "2018-02-20T11:33:01Z",
+            "Task_Done": "Inventory Counting"
+          }
+        }, {
+          "UserId": "6162",
+          "Picker_Username": "Graeme",
+          "Log": {
+            "Login_Time": "2018-02-20T19:38:03Z",
+            "Logout_Time": "2018-02-20T08:09:18Z",
+            "Task_Done": "Purchase Order"
+          }
+        }, {
+          "UserId": "1032",
+          "Picker_Username": "Holden",
+          "Log": {
+            "Login_Time": "2018-02-20T04:35:15Z",
+            "Logout_Time": "2018-02-20T14:18:32Z",
+            "Task_Done": "Inventory Counting"
+          }
+        }, {
+          "UserId": "3187",
+          "Picker_Username": "Findlay",
+          "Log": {
+            "Login_Time": "2018-02-20T23:46:18Z",
+            "Logout_Time": "2018-02-20T17:21:02Z",
+            "Task_Done": "Purchase Order"
+          }
+        }, {
+          "UserId": "6850",
+          "Picker_Username": "Tracey",
+          "Log": {
+            "Login_Time": "2018-02-20T15:29:36Z",
+            "Logout_Time": "2018-02-20T01:17:36Z",
+            "Task_Done": "Purchase Order"
+          }
+        }, {
+          "UserId": "8779",
+          "Picker_Username": "Jdavie",
+          "Log": {
+            "Login_Time": "2018-02-20T22:42:27Z",
+            "Logout_Time": "2018-02-20T18:17:04Z",
+            "Task_Done": "Purchase Order"
+          }
+        }, {
+          "UserId": "0545",
+          "Picker_Username": "Maddie",
+          "Log": {
+            "Login_Time": "2018-02-20T08:02:36Z",
+            "Logout_Time": "2018-02-20T16:58:42Z",
+            "Task_Done": "Purchase Order"
+          }
+        }, {
+          "UserId": "2309",
+          "Picker_Username": "Lou",
+          "Log": {
+            "Login_Time": "2018-02-20T17:42:46Z",
+            "Logout_Time": "2018-02-20T18:56:54Z",
+            "Task_Done": "Purchase Order"
+          }
+        }]
+}
