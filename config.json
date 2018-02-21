@@ -1,0 +1,36 @@
+{
+    "adminAccount": "steltix",
+    "adminUser": "ScanZoneSys",
+    "users": [
+        {
+            "username": "demo",
+            "password": "demo",
+            "role": "Picker"
+            
+        },
+        {
+            "username": "demodev",
+            "password": "demo",
+            "role": "Developer"
+            
+        },
+        {
+            "username": "mandeno",
+            "password": "demo",
+            "role": "Manager"
+            
+        },
+        {
+            "username": "Rendani",
+            "password": "demo",
+            "role": "Manager"
+            
+        },
+        {
+            "username": "Liwa",
+            "password": "demo",
+            "role": "Manager"
+            
+        }
+    ]
+}
