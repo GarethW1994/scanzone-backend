@@ -8,7 +8,7 @@ module.exports = function (Model) {
     
  // console.log(config)
     const manager = function (req, res, next) {
-        if (req.session.userRole === 'manager') {
+       // if (req.session.userRole === 'manager') {
             Model.picker.find({},function(err,results){
                 if(err){
                     return next();
@@ -17,7 +17,7 @@ module.exports = function (Model) {
                 }
             })
         
-        }
+       // }
     
 
     }
@@ -42,6 +42,29 @@ module.exports = function (Model) {
         })    
              
       }
+      const availItems = function (req, res, next) {
+        Model.items.find({}, { _id: 0, __v: 0 }, function (err, results) {
+            if (err) return next();
+            res.json(results)
+        })
+    }
+
+    const getPObyId = function (req, res, next) {
+        var scannedPo = req.body.PO_number;
+        var scannedItem = req.body.Item_no;
+        Model.items.findOne({ PO_number: scannedPo }, { _id: 0, __v: 0 }, function (err, results) {
+            if (err) throw err;
+            var detailsArray = results.Details;
+            var findings = [];
+            detailsArray.forEach(element => {
+                if (element.Item_no === scannedItem) {
+                    findings.push(element)
+                } 
+            });
+            res.json(findings)
+        })
+    }
+
     const register = function(req, res) {
   
         var hashedPassword = bcrypt.hashSync(req.body.password, 8);
@@ -98,6 +121,8 @@ module.exports = function (Model) {
     availItems,
     getPObyId,
     scanZone,
+    availItems,
+    getPObyId,
     access_denied,
     manager,
     register
