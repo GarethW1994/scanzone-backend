@@ -59,6 +59,9 @@ app.get('/', function(req, res, next) {
 
 // OTHER ROUTES GO HERE
 app.get('/manager',Routes.manager);
+app.get('/items',Routes.availItems);
+app.post('/po',Routes.getPObyId)
+// app.post('/create',Routes.creatData)
 app.get('/access_denied', Routes.access_denied);
 
 //Post Route to login

@@ -72,13 +72,23 @@ module.exports = function (url) { //mongodb://greets:greets@ds064299.mlab.com:64
 
     // Set Unique Value For Dev Account
     Developer.index({ Dev_Username: 1 }, { unique: true });
-
     var developer = mongoose.model('developer', Developer);
+
+    // Item Schema
+    const Items = new mongoose.Schema({
+        PO_number : String,
+        Supplier_number : String,
+        Order_date : Date,
+        Details:Array
+    })
+    Items.index({PO_number: 1 }, { unique: true });
+    var items = mongoose.model('items', Items)
 
     return {
         user,
         admin,
         picker,
-        developer
+        developer,
+        items
     };
 }
