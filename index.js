@@ -20,6 +20,7 @@ const mongoURL = process.env.MONGO_DB_URL ||'mongodb://localhost/backend-log';
 // REQUIRE OTHER FILES HERE
 const model = require('./modules/Modules');
 const routes = require('./routes/Router');
+
 // INITILIASE
 const Model = model(mongoURL)
 const Routes = routes(Model);
@@ -56,7 +57,8 @@ app.use(cors());
 app.get('/', function(req, res, next) {
     res.send('SCAN ZONE EXPRESS BACKEND')
 });
-
+app.get('/items',Routes.availItems);
+app.post('/po',Routes.getPObyId)
 // OTHER ROUTES GO HERE
 app.get('/manager',Routes.manager);
 app.get('/access_denied', Routes.access_denied);
