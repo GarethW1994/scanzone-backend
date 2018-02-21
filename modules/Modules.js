@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const assert = require('assert');
 
-module.exports = function (url) {
+module.exports = function (url) { //mongodb://greets:greets@ds064299.mlab.com:64299/liwa-greetings-webapp
     // Use connect method to connect to the server
     mongoose.connect(url, function (err, db) {
         assert.equal(null, err);
@@ -12,6 +12,18 @@ module.exports = function (url) {
 
     // Use native promises
     mongoose.Promise = global.Promise;
+
+    //User Schema
+    var UserSchema = new mongoose.Schema({  
+        username: String,
+        role: String,
+        password: String
+      });
+
+    // Set unique values for users
+    UserSchema.index({username: 1}, {unique: true});
+
+    var user =  mongoose.model('user', UserSchema);
 
     // Floor Manager Schema
     const Admin = new mongoose.Schema({
@@ -73,6 +85,8 @@ module.exports = function (url) {
     var items = mongoose.model('items', Items)
 
     return {
+        items,
+        user,
         admin,
         picker,
         developer,
