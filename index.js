@@ -57,8 +57,7 @@ app.use(cors());
 app.get('/', function(req, res, next) {
     res.send('SCAN ZONE EXPRESS BACKEND')
 });
-app.get('/items',Routes.availItems);
-app.post('/po',Routes.getPObyId)
+
 // OTHER ROUTES GO HERE
 app.get('/manager',Routes.manager);
 app.get('/items',Routes.availItems);
