@@ -103,7 +103,12 @@ module.exports = function (Model) {
         res.json("access_denied");
     }
 
-    // c+onst 
+ 
+    // const updateItems = function(req, res, next){
+    //     var scannedPo = req.body.PO_number;
+    //     var scannedItem = req.body.Item_no;
+    //     Model.items.update({PO_number:scannedPo})
+    // }
 
     return {
     scanZone,

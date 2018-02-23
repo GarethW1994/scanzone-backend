@@ -60,10 +60,16 @@ app.use(cors());
 app.get('/', function(req, res, next) {
     res.send('SCAN ZONE EXPRESS BACKEND')
 });
+
 app.get('/items', verifyToken, Routes.availItems);
-app.post('/po',verifyToken, Routes.getPObyId)
-// OTHER ROUTES GO HERE
+app.post('/po',verifyToken, Routes.getPObyId);
 app.get('/manager', verifyToken, Routes.manager);
+
+// OTHER ROUTES GO HERE
+
+
+// OTHER ROUTES GO HERE
+
 app.get('/access_denied', Routes.access_denied);
 
 //Post Route to login
