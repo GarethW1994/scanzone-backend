@@ -8,20 +8,26 @@ module.exports = function (Model) {
     
  // console.log(config)
     const manager = function (req, res, next) {
-       // if (req.session.userRole === 'manager') {
+    //    console.log(req.headers.authorization)
+    //    if (req.session.verifyToken) {
             Model.picker.find({},function(err,results){
                 if(err){
                     return next();
                 }else{
                     res.json(results)
+                    res.end();
+                    // console.log(results)
                 }
             })
-        
-       // }
+
+        // next();
+    //    }else{
+    //     return res.status(404).send('Access denied')
+    //  }
     
 
     }
-
+    
     const scanZone =  function(req, res, next){
        
         Model.user.findOne({username: req.body.username}, function (err, user) {
@@ -36,33 +42,42 @@ module.exports = function (Model) {
             var token = jwt.sign({id: user._id}, config.secret, {
                 expiresIn: 3600 //expires in 1 hour
             })
-    
             res.status(200).send({auth: true, token: token, role: user.role})
+           req.headers.token = token;
+            
             
         })    
              
       }
       const availItems = function (req, res, next) {
-        Model.items.find({}, { _id: 0, __v: 0 }, function (err, results) {
-            if (err) return next();
-            res.json(results)
-        })
+          
+            Model.items.find({}, { _id: 0, __v: 0 }, function (err, results) {
+                if (err) return next();
+                res.json(results);
+                res.end();
+            })
+          
+       
     }
 
     const getPObyId = function (req, res, next) {
-        var scannedPo = req.body.PO_number;
-        var scannedItem = req.body.Item_no;
-        Model.items.findOne({ PO_number: scannedPo }, { _id: 0, __v: 0 }, function (err, results) {
-            if (err) throw err;
-            var detailsArray = results.Details;
-            var findings = [];
-            detailsArray.forEach(element => {
-                if (element.Item_no === scannedItem) {
-                    findings.push(element)
-                } 
-            });
-            res.json(findings)
-        })
+        
+            var scannedPo = req.body.PO_number;
+            var scannedItem = req.body.Item_no;
+            Model.items.findOne({ PO_number: scannedPo }, { _id: 0, __v: 0 }, function (err, results) {
+                if (err) throw err;
+                var detailsArray = results.Details;
+                var findings = [];
+                detailsArray.forEach(element => {
+                    if (element.Item_no === scannedItem) {
+                        findings.push(element)
+                    } 
+                });
+                res.json(findings);
+                res.end();
+            })            
+        
+       
     }
 
     const register = function(req, res) {
