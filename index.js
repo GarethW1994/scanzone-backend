@@ -12,6 +12,7 @@ const logger = require('morgan');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 const config = require('./config');
+var verifyToken = require('./auth/verifyToken');
 
 
 //define mongo url
@@ -37,9 +38,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // handle CORS
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-headers, Accept, Authorization, X-Requested-With");
   res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Methods", "*");
   res.header('Accept', 'application/json');
+  // res.end();
   next();
 });
 
@@ -57,10 +60,10 @@ app.use(cors());
 app.get('/', function(req, res, next) {
     res.send('SCAN ZONE EXPRESS BACKEND')
 });
-app.get('/items',Routes.availItems);
-app.post('/po',Routes.getPObyId)
+app.get('/items', verifyToken, Routes.availItems);
+app.post('/po',verifyToken, Routes.getPObyId)
 // OTHER ROUTES GO HERE
-app.get('/manager',Routes.manager);
+app.get('/manager', verifyToken, Routes.manager);
 app.get('/access_denied', Routes.access_denied);
 
 //Post Route to login
