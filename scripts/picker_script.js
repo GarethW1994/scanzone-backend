@@ -8,7 +8,7 @@ const models = model(mongoURL);
 const defualt_itemObject = function () {
 
 
-    fs.readFile('./picker.json', 'utf8', function (err, data) {
+    fs.readFile('./picker1.json', 'utf8', function (err, data) {
         if (err) throw err;
         // console.log('Connecting to mongo Url.....')
         var pickersObj = JSON.parse(data);

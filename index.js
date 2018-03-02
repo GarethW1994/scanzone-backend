@@ -61,7 +61,8 @@ app.get('/', function(req, res, next) {
 // OTHER ROUTES GO HERE
 app.get('/manager',Routes.manager);
 app.get('/items',Routes.availItems);
-app.post('/po',Routes.getPObyId)
+app.post('/po',Routes.getPObyId);
+app.post('/qtyupdate',Routes.updateItems);
 // app.post('/create',Routes.creatData)
 app.get('/access_denied', Routes.access_denied);
 

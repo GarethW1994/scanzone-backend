@@ -89,7 +89,6 @@ module.exports = function (url) { //mongodb://greets:greets@ds064299.mlab.com:64
         user,
         admin,
         picker,
-        developer,
-        items
+        developer
     };
 }
