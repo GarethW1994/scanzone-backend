@@ -15,21 +15,27 @@
             
         },
         {
-            "username": "mandeno",
+            "username": "Anele",
             "password": "demo",
-            "role": "Manager"
+            "role": "Picker"
             
         },
         {
             "username": "Rendani",
             "password": "demo",
-            "role": "Manager"
+            "role": "Picker"
             
         },
         {
             "username": "Liwa",
             "password": "demo",
             "role": "Manager"
+            
+        },
+        {
+            "username": "Tom",
+            "password": "demo",
+            "role": "Picker"
             
         }
     ]
