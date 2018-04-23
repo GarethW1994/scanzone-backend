@@ -1,0 +1,85 @@
+{
+  "adminAccount": "steltix",
+  "adminUser": "ScanZoneSys",
+  "pickerslist": [{
+    "UserId": "0360",
+    "Picker_Username": "Georgi",
+    "Log": {
+      "Login_Time": "07:00",
+      "Logout_Time": "07:30",
+      "Task_Done": "Purchase Order"
+    }
+  }, {
+    "UserId": "9899",
+    "Picker_Username": "Bryn",
+    "Log": {
+      "Login_Time": "08:00",
+      "Logout_Time": "08:40",
+      "Task_Done": "Purchase Order"
+    }
+  }, {
+    "UserId": "8340",
+    "Picker_Username": "Yorgo",
+    "Log": {
+      "Login_Time": "09:00",
+      "Logout_Time": "09:20",
+      "Task_Done": "Purchase Order"
+    }
+  }, {
+    "UserId": "9077",
+    "Picker_Username": "Bradford",
+    "Log": {
+      "Login_Time": "10:00",
+      "Logout_Time": "10:10",
+      "Task_Done": "Inventory Counting"
+    }
+  }, {
+    "UserId": "7628",
+    "Picker_Username": "Neel",
+    "Log": {
+      "Login_Time": "11:00",
+      "Logout_Time": "11:35",
+      "Task_Done": "Inventory Counting"
+    }
+  }, {
+    "UserId": "6664",
+    "Picker_Username": "Neils",
+    "Log": {
+      "Login_Time": "12:00",
+      "Logout_Time": "12:45",
+      "Task_Done": "Inventory Counting"
+    }
+  }, {
+    "UserId": "5837",
+    "Picker_Username": "Barnaby",
+    "Log": {
+      "Login_Time": "14:00",
+      "Logout_Time": "14:15",
+      "Task_Done": "Inventory Counting"
+    }
+  }, {
+    "UserId": "7036",
+    "Picker_Username": "Kerby",
+    "Log": {
+      "Login_Time": "15:00",
+      "Logout_Time": "15:30",
+      "Task_Done": "Inventory Counting"
+    }
+  }, {
+    "UserId": "9007",
+    "Picker_Username": "Alf",
+    "Log": {
+      "Login_Time": "16:00",
+      "Logout_Time": "16:40",
+      "Task_Done": "Purchase Order"
+    }
+  }, {
+    "UserId": "6916",
+    "Picker_Username": "Vincenty",
+    "Log": {
+      "Login_Time": "07:00",
+      "Logout_Time": "07:30",
+      "Task_Done": "Inventory Counting"
+    }
+  }]
+}

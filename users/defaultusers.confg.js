@@ -41,23 +41,7 @@ const automateUsers = function () {
                         console.log('Results', results);
                     }
 
-                })
-
-                //    if(err){
-                //        if (err.code === 11000) {
-                //        console.log(element.username+' already exist')
-
-                //        }
-
-                //    }
-                //    if (err.code !== 11000) {
-                //        console.log('Adding a new user to ScanZone....')
-
-
-
-                //    }else{
-                //        console.log(element.username+' already exist')
-                //    }
+                })   
 
             })
 

@@ -9,15 +9,22 @@ module.exports = function (url) { //mongodb://greets:greets@ds064299.mlab.com:64
 
         // db.close();
     });
-
+    
     // Use native promises
     mongoose.Promise = global.Promise;
 
+    //ACtivity Scheme
+    const logSchema = new mongoose.Schema({
+        loginTime: String,
+        task:[],
+        logOutTime: String
+    })
     //User Schema
     var UserSchema = new mongoose.Schema({  
         username: String,
         role: String,
-        password: String
+        password: String,
+        log: [logSchema]
       });
 
     // Set unique values for users
@@ -82,7 +89,33 @@ module.exports = function (url) { //mongodb://greets:greets@ds064299.mlab.com:64
         Details:Array
     })
     Items.index({PO_number: 1 }, { unique: true });
-    var items = mongoose.model('items', Items)
+    var items = mongoose.model('items', Items);
+
+   const purchaseOrders = new mongoose.Schema({
+            PO: {
+                type: String
+            },
+            SupplierNo: {
+                type: String
+            },
+            totalAmount: {
+                type: Number
+            },
+            orderDate: {
+                type: String,
+                default: new Date().toLocaleDateString()
+            },
+            Details: {
+                type: Array
+            }
+    })
+
+    // Set Unique Values For purchase order
+    purchaseOrders.index({ PO : 1 }, { unique: true });
+
+    var PurchaseOrder = mongoose.model('PurchaseOrder', purchaseOrders);
+
+
 
     return {
         items,
@@ -90,6 +123,7 @@ module.exports = function (url) { //mongodb://greets:greets@ds064299.mlab.com:64
         admin,
         picker,
         developer,
-        items
+        items,
+PurchaseOrder
     };
 }
